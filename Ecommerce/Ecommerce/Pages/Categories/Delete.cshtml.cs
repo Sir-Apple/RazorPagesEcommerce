@@ -27,18 +27,14 @@ public class DeleteModel : PageModel
 
     public async Task<IActionResult> OnPost()
     {
-        
-        if (ModelState.IsValid)
+        var categoryFromDb = _db.Category.Find(Category.Id);
+        if (categoryFromDb != null)
         {
-            var categoryFromDb = _db.Category.Find(Category.Id);
-            if (categoryFromDb != null)
-            {
-                _db.Category.Remove(categoryFromDb);
-            }
-			_db.Category.Update(Category);
+            _db.Category.Remove(categoryFromDb);
 			await _db.SaveChangesAsync();
+			TempData["success"] = "Category deleted sucessfully";
 			return RedirectToPage("Index");
-		}
+		}		
         return Page();
     }
 }
