@@ -2,9 +2,9 @@
 
 #nullable disable
 
-namespace Ecommerce.Migrations
+namespace Ecommerce.DataAccess.Migrations
 {
-    public partial class AddCategoryToDb : Migration
+    public partial class addCategoryToDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
