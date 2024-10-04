@@ -3,7 +3,7 @@ using Ecommerce.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Ecommerce.Pages.Categories;
+namespace Ecommerce.Pages.Admin.Categories;
 
 [BindProperties]
 
