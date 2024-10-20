@@ -10,5 +10,7 @@ namespace Ecommerce.DataAccess.Data
 
         }
         public DbSet<Category> Category { get; set; }
+
+        public DbSet<Bugs> Bugs { get; set; }   
     }
 }
