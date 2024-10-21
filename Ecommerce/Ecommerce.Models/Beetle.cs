@@ -2,7 +2,7 @@
 
 namespace Ecommerce.Models
 {
-    public class Bugs
+    public class Beetle
     {
         [Key]
         public int Id { get; set; }

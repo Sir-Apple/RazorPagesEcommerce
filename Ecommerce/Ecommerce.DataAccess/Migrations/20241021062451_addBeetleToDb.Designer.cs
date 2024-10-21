@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ecommerce.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241020032036_addBugsToDb")]
-    partial class addBugsToDb
+    [Migration("20241021062451_addBeetleToDb")]
+    partial class addBeetleToDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,7 +23,7 @@ namespace Ecommerce.DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Ecommerce.Models.Bugs", b =>
+            modelBuilder.Entity("Ecommerce.Models.Beetle", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -37,7 +37,7 @@ namespace Ecommerce.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Bugs");
+                    b.ToTable("Beetle");
                 });
 
             modelBuilder.Entity("Ecommerce.Models.Category", b =>

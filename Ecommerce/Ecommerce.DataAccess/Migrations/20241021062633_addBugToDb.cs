@@ -4,12 +4,12 @@
 
 namespace Ecommerce.DataAccess.Migrations
 {
-    public partial class addBugsToDb : Migration
+    public partial class addBugToDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Bugs",
+                name: "Bug",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -18,14 +18,14 @@ namespace Ecommerce.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Bugs", x => x.Id);
+                    table.PrimaryKey("PK_Bug", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Bugs");
+                name: "Bug");
         }
     }
 }
