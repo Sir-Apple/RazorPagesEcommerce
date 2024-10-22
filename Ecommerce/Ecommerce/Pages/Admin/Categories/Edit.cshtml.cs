@@ -20,10 +20,10 @@ public class EditModel : PageModel
     public void OnGet(int id)
     {
         Category = _db.Category.Find(id);
-		//Category = _db.Category.FirstOrDefault(u => u.Id == id);
-		//Category = _db.Category.SingleOrDefault(u => u.Id == id);
-		//Category = _db.Category.Where(u => u.Id == id).FirstOrDefault();
-	}
+        //Category = _db.Category.FirstOrDefault(u => u.Id == id);
+        //Category = _db.Category.SingleOrDefault(u => u.Id == id);
+        //Category = _db.Category.Where(u => u.Id == id).FirstOrDefault();
+    }
 
     public async Task<IActionResult> OnPost()
     {
