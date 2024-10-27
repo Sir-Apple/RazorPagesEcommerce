@@ -1,4 +1,5 @@
 using Ecommerce.DataAccess.Data;
+using Ecommerce.DataAccess.Repository.IRepository;
 using Ecommerce.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -7,15 +8,17 @@ namespace Ecommerce.Pages.Admin.Categories
 {
     public class IndexModel : PageModel
     {
-        private readonly ApplicationDbContext _db;
-        public IEnumerable<Category> Categories { get; set; }
-        public IndexModel(ApplicationDbContext db)
+		private readonly ICategoryRepository _dbCategory;
+		[BindProperty]
+		public IEnumerable <Category> Categories { get; set; }
+
+		public IndexModel(ICategoryRepository dbCategory)
+		{
+			_dbCategory = dbCategory;
+		}
+		public void OnGet()
         {
-            _db = db;
-        }
-        public void OnGet()
-        {
-            Categories = _db.Category;
+            Categories = _dbCategory.GetAll();
         }
     }
 }
