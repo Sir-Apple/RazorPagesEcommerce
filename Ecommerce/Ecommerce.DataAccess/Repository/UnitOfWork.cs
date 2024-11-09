@@ -16,8 +16,10 @@ namespace Ecommerce.DataAccess.Repository
 		{
 			_db = db;
 			Category = new CategoryRepository(_db);
+			Bug = new BugRepository(_db);
 		}
 		public ICategoryRepository Category { get;private set; }
+		public IBugRepository Bug { get; private set; }
 
 		public void Dispose()
 		{

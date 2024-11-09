@@ -1,4 +1,6 @@
 using Ecommerce.DataAccess.Data;
+using Ecommerce.DataAccess.Repository;
+using Ecommerce.DataAccess.Repository.IRepository;
 using Ecommerce.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,13 +11,12 @@ namespace Ecommerce.Pages.Admin.Bugs;
 
 public class CreateModel : PageModel
 {
-    private readonly ApplicationDbContext _db;
-    [BindProperty]
+    private readonly IUnitOfWork _unitOfWork;
     public Bug Bug { get; set; }
 
-    public CreateModel(ApplicationDbContext db)
+    public CreateModel(IUnitOfWork unitOfWork)
     {
-        _db = db;
+		_unitOfWork = unitOfWork;
     }
     public void OnGet()
     {
@@ -25,8 +26,8 @@ public class CreateModel : PageModel
     {
         if (ModelState.IsValid)
         {
-			await _db.Bug.AddAsync(Bug);
-			await _db.SaveChangesAsync();
+			_unitOfWork.Bug.Add(Bug);
+			_unitOfWork.Save();
             TempData["success"] = "Bug Type created sucessfully";
 			return RedirectToPage("Index");
 		}

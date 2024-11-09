@@ -9,6 +9,7 @@ namespace Ecommerce.DataAccess.Repository.IRepository
 	public interface IUnitOfWork : IDisposable
 	{
 		ICategoryRepository Category { get; }
+		IBugRepository Bug { get; }
 		void Save();
 	}
 }

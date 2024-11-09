@@ -1,4 +1,5 @@
 using Ecommerce.DataAccess.Data;
+using Ecommerce.DataAccess.Repository.IRepository;
 using Ecommerce.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,15 +10,14 @@ namespace Ecommerce.Pages.Admin.Bugs;
 
 public class DeleteModel : PageModel
 {
-    private readonly ApplicationDbContext _db;
-    [BindProperty]
-    public Bug Bug { get; set; }
+	private readonly IUnitOfWork _unitOfWork;
+	public Bug Bug { get; set; }
 
-    public DeleteModel(ApplicationDbContext db)
-    {
-        _db = db;
-    }
-    public void OnGet(int id)
+	public DeleteModel(IUnitOfWork unitOfWork)
+	{
+		_unitOfWork = unitOfWork;
+	}
+	public void OnGet(int id)
     {
 		Bug = _db.Bug.Find(id);
 		//Category = _db.Category.FirstOrDefault(u => u.Id == id);
